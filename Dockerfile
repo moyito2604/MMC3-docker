@@ -13,7 +13,7 @@ EXPOSE 25565/tcp
 COPY . .
 
 #Sets default java arguments
-ENV JAVA_ARGS="-Xms6144m -Xmx8192m"
+ENV JAVA_ARGS="-Xms4096m -Xmx6144m"
 
 #Sets permissions for scripts and runs prep.sh
 RUN chmod +x prep.sh
