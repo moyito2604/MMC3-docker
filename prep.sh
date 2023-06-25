@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Retrieves the modpack
+curl -L https://www.curseforge.com/api/v1/mods/486989/files/4581850/download -o medievalv16.zip
 rm -rf variables.txt
 unzip medievalv16.zip
 mv "Medieval MC [FORGE] 1.19.2 Server Pack"/* .

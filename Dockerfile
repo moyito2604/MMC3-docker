@@ -8,10 +8,6 @@ WORKDIR /data
 RUN apk update
 RUN apk add --no-cache zip unzip wget bash curl
 
-#Retrieves the modpack
-RUN wget https://www.curseforge.com/api/v1/mods/486989/files/4581850/download
-RUN mv download medievalv16.zip
-
 #Exposes the port and copies scripts
 EXPOSE 25565/tcp
 COPY . .
