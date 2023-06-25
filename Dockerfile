@@ -1,12 +1,12 @@
-FROM openjdk:19-buster
+FROM eclipse-temurin:18-jdk-alpine
 
 #Sets up the workspace
 VOLUME ["/data"]
 WORKDIR /data
 
 #Updates the container and installs dependencies
-RUN apt update
-RUN apt install -y zip unzip wget
+RUN apk update
+RUN apk add --no-cache zip unzip wget bash curl
 
 #Retrieves the modpack
 RUN wget https://www.curseforge.com/api/v1/mods/486989/files/4581850/download
@@ -17,7 +17,7 @@ EXPOSE 25565/tcp
 COPY . .
 
 #Sets default java arguments
-ENV JAVA_ARGS="-Xms4096m -Xmx6144m"
+ENV JAVA_ARGS="-Xms6144m -Xmx8192m"
 
 #Sets permissions for scripts and runs prep.sh
 RUN chmod +x prep.sh
