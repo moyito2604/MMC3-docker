@@ -2,7 +2,7 @@ FROM eclipse-temurin:18-jdk-alpine
 
 #Sets up the workspace
 VOLUME ["/data"]
-WORKDIR /data
+WORKDIR /
 
 #Updates the container and installs dependencies
 RUN apk update
@@ -10,7 +10,7 @@ RUN apk add --no-cache zip unzip wget bash curl
 
 #Exposes the port and copies scripts
 EXPOSE 25565/tcp
-COPY . .
+COPY prep.sh .
 
 #Sets default java arguments
 ENV JAVA_ARGS="-Xms4096m -Xmx6144m"
