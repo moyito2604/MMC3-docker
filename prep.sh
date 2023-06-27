@@ -24,11 +24,11 @@ if [ -f "$FILENAME" ]; then
 
     #Ensures there is a valid variable template file
     if [ -f "$VARTMP" ]; then
+        cp $VARTMP variables.txt
+    else
         echo "Missing variables.txt file: Downloading modpack for replacement"
         dl_modpack
         cp variables.txt $VARTMP
-    else
-        cp $VARTMP variables.txt
     fi
 else
     
