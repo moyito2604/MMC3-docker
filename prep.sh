@@ -2,6 +2,7 @@
 FILENAME=medievalv16.zip
 FOLDERNM="Medieval MC [FORGE] 1.19.2 Server Pack"
 VARTMP="template.txt"
+VARPMT="variables.txt"
 URL="https://www.curseforge.com/api/v1/mods/486989/files/4581850/download"
 
 #Function to download modpack
@@ -21,28 +22,28 @@ echo eula=true > eula.txt
 #checks if there is a current modpack installation
 if [ -f "$FILENAME" ]; then
     echo "Installation Exists"
-    rm -rf variables.txt
+    rm -rf $VARPMT
 
     #Ensures there is a valid variable template file
     if [ -f "$VARTMP" ]; then
-        cp $VARTMP variables.txt
+        cp $VARTMP $VARPMT
     else
-        echo "Missing variables.txt file: Downloading modpack for replacement"
+        echo "Missing $VARPMT file: Downloading modpack for replacement"
         dl_modpack
-        cp variables.txt $VARTMP
+        cp $VARPMT $VARTMP
     fi
 else
     
     #If there is no installation, it downloads the modpack and creates the installation
     dl_modpack
-    cp variables.txt $VARTMP
+    cp $VARPMT $VARTMP
 fi
 
 #Sets Variables
 echo ""
 echo "Variables:"
-sed 's%JAVA_ARGS=""%JAVA_ARGS="'"$JAVA_ARGS"'"%' variables.txt
-sed -i 's%JAVA_ARGS=""%JAVA_ARGS="'"$JAVA_ARGS"'"%' variables.txt
+sed 's%JAVA_ARGS=""%JAVA_ARGS="'"$JAVA_ARGS"'"%' $VARPMT
+sed -i 's%JAVA_ARGS=""%JAVA_ARGS="'"$JAVA_ARGS"'"%' $VARPMT
 
 #Changes permissions and starts server
 chmod +x start.sh
