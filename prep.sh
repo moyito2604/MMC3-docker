@@ -2,10 +2,11 @@
 FILENAME=medievalv16.zip
 FOLDERNM="Medieval MC [FORGE] 1.19.2 Server Pack"
 VARTMP="template.txt"
+URL="https://www.curseforge.com/api/v1/mods/486989/files/4581850/download"
 
 #Function to download modpack
 dl_modpack() {
-    curl -L https://www.curseforge.com/api/v1/mods/486989/files/4581850/download -o $FILENAME
+    curl -L $URL -o $FILENAME
     unzip $FILENAME
     mv "$FOLDERNM"/* .
     rm -rf "$FOLDERNM"
