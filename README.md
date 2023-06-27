@@ -11,3 +11,8 @@ To Run:
 ```
 docker run -p <port>:25565 -v '/path/to/files':'/data':'rw' imagename
 ```
+
+A prebuilt container can be made and run using the following command
+```
+docker run -p <port>:25565 -v '/path/to/files':'/data':'rw' moyito2604/mmc3-docker:latest
+```
