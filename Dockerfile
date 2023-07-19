@@ -10,10 +10,12 @@ RUN apk add --no-cache zip unzip wget bash curl
 
 #Exposes the port and copies scripts
 EXPOSE 25565/tcp
+EXPOSE 25575/tcp
 COPY prep.sh .
 
 #Sets default java arguments
 ENV JAVA_ARGS="-Xms4096m -Xmx6144m"
+ENV RCON_PASS="changeme"
 
 #Sets permissions for scripts and runs prep.sh
 RUN chmod +x prep.sh
