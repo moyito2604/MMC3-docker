@@ -1,17 +1,20 @@
 #!/bin/bash
-FILENAME=medievalv16.zip
-FOLDERNM="Medieval MC [FORGE] 1.19.2 Server Pack"
+FILENAME=medievalv17.zip
+#FOLDERNM="Medieval MC [FORGE] 1.19.2 Server Pack"
 VARTMP="template.txt"
 VARPMT="variables.txt"
 PROPTMP="server.properties.tmp"
 PROPPMT="server.properties"
-URL="https://www.curseforge.com/api/v1/mods/486989/files/4581850/download"
+URL="https://www.curseforge.com/api/v1/mods/486989/files/4658176/download"
 
 #Function to download modpack
 dl_modpack() {
     curl -L $URL -o $FILENAME
+}
+
+unzip_modpack() {
     unzip $FILENAME
-    mv "$FOLDERNM"/* .
+    #mv "$FOLDERNM"/* .
     rm -rf "$FOLDERNM"
 }
 
@@ -22,7 +25,6 @@ cd /data
 if [ -f "$FILENAME" ]; then
     echo "Installation Exists"
     rm -rf $VARPMT
-    rm -rf $PROPPMT
 
     #Ensures there is a valid variable template file
     if [ -f "$VARTMP" ]; then
@@ -35,7 +37,7 @@ if [ -f "$FILENAME" ]; then
 
     #Ensures there is a valid server.properties template file
     if [ -f "$PROPTMP" ]; then
-        cp $PROPTMP $PROPPMT
+        echo "Valid $PROPPMT file"
     else
         echo "Missing $PROPTMP file: Unzipping modpack for replacement"
         unzip_modpack
@@ -59,7 +61,8 @@ echo ""
 echo "Variables:"
 sed 's%JAVA_ARGS=""%JAVA_ARGS="'"$JAVA_ARGS"'"%' $VARPMT
 sed -i 's%JAVA_ARGS=""%JAVA_ARGS="'"$JAVA_ARGS"'"%' $VARPMT
-sed -i 's%enable-rcon=false%enable-rcon=true%' $PROPPMT
+
+echo enable-rcon=true>>$PROPPMT
 echo rcon.password=$RCON_PASS>>$PROPPMT
 echo 'rcon.port=25575'>>$PROPPMT
 echo 'broadcast-rcon-to-ops=false'>>$PROPPMT
