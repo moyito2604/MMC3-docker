@@ -1,11 +1,11 @@
 #!/bin/bash
-FILENAME=medievalv17.zip
+FILENAME=medievalv19.zip
 #FOLDERNM="Medieval MC [FORGE] 1.19.2 Server Pack"
 VARTMP="template.txt"
 VARPMT="variables.txt"
 PROPTMP="server.properties.tmp"
 PROPPMT="server.properties"
-URL="https://www.curseforge.com/api/v1/mods/486989/files/4658176/download"
+URL="https://www.curseforge.com/api/v1/mods/486989/files/4893179/download"
 
 #Function to download modpack
 dl_modpack() {
