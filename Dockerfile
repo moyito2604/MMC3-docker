@@ -1,5 +1,9 @@
 FROM eclipse-temurin:18-jdk-jammy
 
+# Adding Labels to identify repository for github
+LABEL org.opencontainers.image.source=https://github.com/moyito2604/MMC3-docker
+LABEL org.opencontainers.image.description="Containerized Version of Mobot"
+
 #Sets up the workspace
 VOLUME ["/data"]
 WORKDIR /
