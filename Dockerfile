@@ -2,7 +2,7 @@ FROM eclipse-temurin:17-jdk-jammy
 
 # Adding Labels to identify repository for github
 LABEL org.opencontainers.image.source=https://github.com/moyito2604/MMC3-docker
-LABEL org.opencontainers.image.description="Containerized Version of Mobot"
+LABEL org.opencontainers.image.description="Containerized Version of the Medieval Minecraft Modpack"
 
 #Sets up the workspace
 VOLUME ["/data"]
@@ -24,3 +24,4 @@ ENV RCON_PASS="changeme"
 #Sets permissions for scripts and runs prep.sh
 RUN chmod +x prep.sh
 CMD ["./prep.sh"]
+
