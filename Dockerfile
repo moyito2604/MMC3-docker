@@ -10,7 +10,7 @@ WORKDIR /
 
 #Updates the container and installs dependencies
 RUN apt update
-RUN apt install zip unzip wget bash curl
+RUN apt install -y zip unzip wget bash curl
 
 #Exposes the port and copies scripts
 EXPOSE 25565/tcp
