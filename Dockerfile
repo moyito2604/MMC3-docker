@@ -5,8 +5,8 @@ VOLUME ["/data"]
 WORKDIR /
 
 #Updates the container and installs dependencies
-RUN apk update
-RUN apk add --no-cache zip unzip wget bash curl
+RUN apt update
+RUN apt install zip unzip wget bash curl
 
 #Exposes the port and copies scripts
 EXPOSE 25565/tcp
