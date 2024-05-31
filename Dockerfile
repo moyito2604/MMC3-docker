@@ -1,4 +1,4 @@
-FROM eclipse-temurin:18-jdk-jammy
+FROM eclipse-temurin:17-jdk-jammy
 
 # Adding Labels to identify repository for github
 LABEL org.opencontainers.image.source=https://github.com/moyito2604/MMC3-docker
